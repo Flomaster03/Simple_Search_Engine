@@ -1,0 +1,22 @@
+fun main() {
+    println("Enter the number of people:")
+    val countOfLines = readln().toInt()
+    println("Enter all people:")
+    val listOfLines = MutableList(countOfLines) { readln() }
+    println("\nEnter the number of search queries:")
+    val countOfQueries = readln().toInt()
+    repeat(countOfQueries) {
+        println("\nEnter data to search people:")
+        val word = readln()
+        val innerList = mutableListOf<String>()
+        for (line in listOfLines) {
+            if (line.lowercase().contains(word.lowercase())) innerList.add(line)
+        }
+        if (innerList.isEmpty()) {
+            println("No matching people found.")
+        } else {
+            println("\nPeople found:")
+            innerList.forEach { println(it) }
+        }
+    }
+}
