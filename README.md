@@ -85,3 +85,75 @@ Enter data to search people:
 
 People found:
 Rene Webb webb@gmail.com
+
+
+3_6
+
+Описание
+Давайте модифицируем ранее написанную программу поиска и добавим пользовательское меню для лучшего пользовательского опыта.
+
+Цели
+На этом этапе необходимо создать меню. В меню должны отображаться следующие опции:
+
+1. Search information.
+2. Print all data.
+0. Exit.
+Пользователь должен выбрать пункт меню, а затем при необходимости ввести данные. Ваша программа не должна останавливаться до тех пор, пока не будет выбрана соответствующая опция (выход).
+
+Когда пользователь выбирает вариант поиска человека, программа теперь должна принимать и искать только один запрос за раз.
+
+Разложите программу на отдельные методы, чтобы ее было легко понять и в дальнейшем развивать или редактировать.
+
+Пример
+В приведенном ниже примере мы используем имена и адреса электронной почты людей в качестве примера набора данных. Строки, начинающиеся с, представляют вводимые пользователем данные. Обратите внимание, что эти символы не являются частью входных данных. >
+
+Enter the number of people:
+> 6
+Enter all people:
+> Dwight Joseph djo@gmail.com
+> Rene Webb webb@gmail.com
+> Katie Jacobs
+> Erick Harrington harrington@gmail.com
+> Myrtle Medina
+> Erick Burgess
+
+=== Menu ===
+1. Find a person
+2. Print all people
+0. Exit
+> 3
+
+Incorrect option! Try again.
+
+=== Menu ===
+1. Find a person
+2. Print all people
+0. Exit
+> 1
+
+Enter a name or email to search all suitable people.
+> KATIE
+Katie Jacobs
+
+=== Menu ===
+1. Find a person
+2. Print all people
+0. Exit
+> 2
+
+=== List of people ===
+Dwight Joseph djo@gmail.com
+Rene Webb webb@gmail.com
+Katie Jacobs
+Erick Harrington harrington@gmail.com
+Myrtle Medina
+Erick Burgess
+
+=== Menu ===
+1. Find a person
+2. Print all people
+0. Exit
+> 0
+
+Bye!
+
