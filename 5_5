@@ -1,0 +1,57 @@
+import java.io.File
+
+fun main(args: Array<String>) {
+
+    val fileName = args.filter { it.contains('.')}.joinToString("") //название файла из командной строки
+    val file = File(fileName)
+    val listOfLines = file.readLines()  //сохранение в List списка строк из файла
+    val invertList = mutableMapOf<String, MutableList<Int>>()  //инвертированная Map (ключ - слово, значения - № строк, в которых они есть
+    for (i in listOfLines.indices) {
+        val sublist = listOfLines[i].split(" ").map { it.lowercase() }
+        for (j in sublist) {
+            if (invertList.containsKey(j)) invertList[j]?.add(i) else invertList[j] = mutableListOf(i)
+        }
+    }
+
+    while (true) {
+        println("\n=== Menu ===\n1. Find a person\n2. Print all people\n0. Exit")
+        when (readln().toInt()) {
+            1 -> findAPerson(invertList, listOfLines)
+            2 -> printAllPeople(listOfLines)
+            0 -> {
+                println("Bye!")
+                return
+            }
+
+            else -> {
+                println("Incorrect option! Try again.")
+                continue
+            }
+        }
+    }
+}
+
+//сравнить содержится ли введенное слово в списке строк и напечатать строки, где содержаться
+fun findAPerson(invertList: MutableMap<String, MutableList<Int>>, fileList: List<String>) {
+    println("\nEnter a name or email to search all suitable people.")
+    val word = readln().lowercase()
+    val innerList = mutableListOf<String>()
+    val numbersList = invertList.getOrDefault(word, mutableListOf())
+    if (numbersList.isEmpty()) {
+        innerList.add("No matching people found.")
+    } else {
+        val end = if (numbersList.size > 1) "s" else ""
+        println("${numbersList.size} person$end found:")
+        numbersList.forEach { innerList.add(fileList[it]) }
+    }
+    innerList.forEach { println(it) }
+}
+
+//распечатать строки из файла
+fun printAllPeople(list: List<String>) {
+    println("=== List of people ===")
+    list.forEach { println(it) }
+}
+
+
+
