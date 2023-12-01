@@ -272,3 +272,69 @@ No matching people found.
 
 Bye!
 
+6_6
+
+Описание
+Теперь давайте улучшим вашу поисковую систему, чтобы она поддерживала сложные запросы, содержащие последовательности слов, и использовала несколько стратегий, определяющих способ сопоставления данных.
+
+Цели
+На этом этапе ваша программа должна иметь возможность использовать такие стратегии поиска, как ALL, ANYи NONE.
+
+Возьмем, к примеру, эти шесть образцовых строк:
+
+Dwight Joseph djo@gmail.com
+Rene Webb webb@gmail.com
+Katie Jacobs
+Erick Harrington harrington@gmail.com
+Myrtle Medina
+Erick Burgess
+Если используется стратегия ALL, программа должна вывести строки, содержащие все слова из запроса.
+Запрос:
+
+Harrington Erick
+Результат:
+
+Erick Harrington harrington@gmail.com
+Если выбрана стратегия ANY, программа должна вывести строки, содержащие хотя бы одно слово из запроса.
+Запрос:
+
+Erick Dwight webb@gmail.com
+Результат:
+
+Erick Harrington harrington@gmail.com
+Erick Burgess
+Dwight Joseph djo@gmail.com
+Rene Webb webb@gmail.com
+Если выбрана стратегия NONE, программа должна печатать строки, которые вообще не содержат слов из запроса.
+Запрос:
+
+djo@gmail.com ERICK
+Результат:
+
+Katie Jacobs
+Myrtle Medina
+Rene Webb webb@gmail.com
+Все перечисленные операции должны быть реализованы с инвертированным индексом, а результаты не должны содержать дубликатов.
+
+Не забывайте использовать методы для декомпозиции вашей программы.
+
+Пример
+Строки, начинающиеся с, > представляют вводимые пользователем данные. Обратите внимание, что эти символы не являются частью входных данных.
+
+=== Menu ===
+1. Find a person
+2. Print all persons
+0. Exit
+> 1
+
+Select a matching strategy: ALL, ANY, NONE
+> ANY
+
+Enter a name or email to search all matching people.
+> Katie Erick QQQ
+
+3 persons found:
+Katie Jacobs
+Erick Harrington harrington@gmail.com
+Erick Burgess
+
