@@ -1,6 +1,8 @@
+package search
+
 fun main() {
     val input = readln().split(" ")
     val word = readln()
     val index = input.indexOf(word)
-    println(if (index > 0) index + 1 else "Not Found")
+    println(if (index >= 0) index + 1 else "Not Found")
 }
